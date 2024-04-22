@@ -30,3 +30,4 @@ include(":core:network")
 include(":core:model")
 
 include(":feature:map")
+include(":core:database")
