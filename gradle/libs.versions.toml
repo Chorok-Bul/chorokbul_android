@@ -16,6 +16,10 @@ okhttp = "5.0.0-alpha.11"
 okhttpLogging = "4.12.0"
 ksp = "1.9.22-1.0.17"
 room = "2.6.1"
+naverMap = "3.18.0"
+naverMapCompose = "1.5.6"
+naverMapComposeLocation = "21.0.1"
+googleLocation = "21.2.0"
 
 # Android
 minSdk = "26"
@@ -85,6 +89,11 @@ ksp-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+
+# Naver Map
+naver-map-compose = { module = "io.github.fornewid:naver-map-compose", version.ref = "naverMapCompose" }
+google-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation"}
+naver-map-compose-location = { module = "io.github.fornewid:naver-map-location", version.ref = "naverMapComposeLocation" }
 
 [bundles]
 compose = [
