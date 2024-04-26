@@ -32,3 +32,4 @@ include(":core:model")
 
 include(":feature:map")
 include(":core:database")
+include(":resource")
