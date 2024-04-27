@@ -24,4 +24,9 @@ object DatabaseModule {
         ).fallbackToDestructiveMigration().build()
     }
 
+    @Singleton
+    @Provides
+    fun provideRawDataDao(db: ChorokBulDatabase): RawDataDao {
+        return db.rawDataDao()
+    }
 }
