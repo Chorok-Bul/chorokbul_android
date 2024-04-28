@@ -31,3 +31,4 @@ include(":core:model")
 
 include(":feature:map")
 include(":core:database")
+include(":feature:service")
