@@ -8,7 +8,7 @@ espressoCore = "3.5.1"
 compose = "1.6.6"
 activityCompose = "1.9.0"
 composeLifecycle = "2.7.0"
-composeMaterial3 = "1.2.1"
+composeMaterial = "1.6.6"
 composeCompiler = "1.5.10"
 hilt = "2.50"
 retrofit = "2.9.0"
@@ -16,10 +16,9 @@ okhttp = "5.0.0-alpha.11"
 okhttpLogging = "4.12.0"
 ksp = "1.9.22-1.0.17"
 room = "2.6.1"
-naverMap = "3.18.0"
 naverMapCompose = "1.5.6"
 naverMapComposeLocation = "21.0.1"
-googleLocation = "21.2.0"
+googleLocation = "21.0.1"
 
 # Android
 minSdk = "26"
@@ -41,7 +40,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 # Compose
 compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "composeMaterial" }
 compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 compose-runtime-livedate-temp = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -99,7 +98,7 @@ naver-map-compose-location = { module = "io.github.fornewid:naver-map-location",
 compose = [
     "compose-animation",
     "compose-foundation",
-    "compose-material3",
+    "compose-material",
     "compose-runtime",
     "compose-ui",
     "compose-activity",

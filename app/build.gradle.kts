@@ -68,5 +68,6 @@ dependencies {
 
     implementation(libs.timber)
 
+    implementation(projects.resource)
     implementation(projects.feature.map)
 }
