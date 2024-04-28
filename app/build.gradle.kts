@@ -67,4 +67,7 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.timber)
+
+    implementation(projects.resource)
+    implementation(projects.feature.map)
 }

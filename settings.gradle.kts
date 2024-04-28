@@ -16,6 +16,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://naver.jfrog.io/artifactory/maven/")
     }
 }
 
@@ -31,3 +32,4 @@ include(":core:model")
 
 include(":feature:map")
 include(":core:database")
+include(":resource")
