@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.chorokbul.model"
 }
+
+dependencies {
+    implementation(libs.bundles.room)
+}
