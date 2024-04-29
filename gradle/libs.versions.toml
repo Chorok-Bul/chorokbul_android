@@ -19,6 +19,7 @@ room = "2.6.1"
 naverMapCompose = "1.5.6"
 naverMapComposeLocation = "21.0.1"
 googleLocation = "21.0.1"
+dataStore = "1.1.0"
 
 # Android
 minSdk = "26"
@@ -91,8 +92,11 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 # Naver Map
 naver-map-compose = { module = "io.github.fornewid:naver-map-compose", version.ref = "naverMapCompose" }
-google-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation"}
+google-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation" }
 naver-map-compose-location = { module = "io.github.fornewid:naver-map-location", version.ref = "naverMapComposeLocation" }
+
+# PreferencesDatastore
+datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "dataStore" }
 
 [bundles]
 compose = [

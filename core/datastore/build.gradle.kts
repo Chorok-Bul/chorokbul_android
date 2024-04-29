@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.chorokbul.datastore"
 }
+
+dependencies {
+    implementation(libs.datastore)
+}
