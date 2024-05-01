@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.chorokbul.map.NaverMapScreen
 import com.chorokbul.resource.R
+import com.chorokbul.splash.SplashScreen
 
 @Composable
 fun MainNavHost(
@@ -23,10 +24,33 @@ fun MainNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = RouteScreen.Map.screenRoute,
+        startDestination = RouteScreen.Splash.screenRoute,
         modifier = modifier
             .padding(paddingValues),
     ) {
+
+        // SplashScreen
+        composable(
+            route = RouteScreen.Splash.screenRoute
+        ) {
+            SplashScreen(
+                onComplete = { complete ->
+                    if (complete) {
+                        val route = RouteScreen.Map.screenRoute
+                        navController.navigate(
+                            route = route,
+                            builder = {
+                                popUpTo(route) { saveState = false }
+                                launchSingleTop = true
+                                restoreState = false
+                            }
+                        )
+                    }
+                }
+            )
+        }
+
+        // MapScreen
         composable(
             route = RouteScreen.Map.screenRoute
         ) {
