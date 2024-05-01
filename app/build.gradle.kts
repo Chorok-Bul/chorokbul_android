@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 
     id("org.jetbrains.kotlin.kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -70,4 +71,5 @@ dependencies {
 
     implementation(projects.resource)
     implementation(projects.feature.map)
+    implementation(projects.feature.splash)
 }

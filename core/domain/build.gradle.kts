@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.chorokbul.domain"
 }
+
+dependencies {
+    implementation(projects.core.data)
+}
