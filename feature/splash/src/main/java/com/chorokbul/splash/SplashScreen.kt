@@ -1,5 +1,6 @@
 package com.chorokbul.splash
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -17,26 +20,36 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.chorokbul.resource.R
-import com.chorokbul.splash.common.DefaultMargin16
-import com.chorokbul.splash.common.DefaultMargin24
+import com.chorokbul.splash.common.Dimens.DefaultMargin16
+import com.chorokbul.splash.common.Dimens.DefaultMargin24
 import com.chorokbul.splash.common.EmptyColorBox
 
 @Composable
 fun SplashScreen(
-    modifier: Modifier = Modifier
+    onComplete: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+    splashViewModel: SplashViewModel = hiltViewModel()
 ) {
+    val completed by splashViewModel.complete
+
+    LaunchedEffect(completed) {
+        onComplete(completed)
+    }
+
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = modifier.weight(1f))
-        //임시 문구여서 Text로 우선 구현, 후에 벡터 svg로 교체 예정
+        // TODO: 임시 문구여서 Text로 우선 구현, 후에 벡터 svg로 교체 예정
         Text(
             modifier = modifier.padding(bottom = 8.dp),
             fontWeight = FontWeight.ExtraBold,
             fontSize = 20.sp,
-            color = colorResource(id = R.color.green_major),
+            color = colorResource(id = R.color.green_main),
             text = "든든한 내 친구"
         )
         Image(
@@ -62,12 +75,6 @@ fun SplashScreen(
             contentScale = ContentScale.FillWidth,
             contentDescription = null
         )
-        EmptyColorBox(height = DefaultMargin24, colorRes = R.color.green_major)
+        EmptyColorBox(height = DefaultMargin24, colorRes = R.color.green_main)
     }
-}
-
-@Preview(name = "SplashCompose")
-@Composable
-private fun PreviewSplashCompose() {
-    SplashScreen()
 }
