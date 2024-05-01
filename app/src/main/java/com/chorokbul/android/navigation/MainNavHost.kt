@@ -1,8 +1,11 @@
 package com.chorokbul.android.navigation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -26,6 +29,30 @@ fun MainNavHost(
         startDestination = RouteScreen.Map.screenRoute,
         modifier = modifier
             .padding(paddingValues),
+        enterTransition = {
+            slideIntoContainer(
+                AnimatedContentTransitionScope.SlideDirection.Left,
+                animationSpec = tween(700)
+            )
+        },
+        exitTransition = {
+            slideOutOfContainer(
+                AnimatedContentTransitionScope.SlideDirection.Left,
+                animationSpec = tween(700)
+            )
+        },
+        popEnterTransition = {
+            slideIntoContainer(
+                AnimatedContentTransitionScope.SlideDirection.Right,
+                animationSpec = tween(700)
+            )
+        },
+        popExitTransition = {
+            slideOutOfContainer(
+                AnimatedContentTransitionScope.SlideDirection.Right,
+                animationSpec = tween(700)
+            )
+        },
     ) {
         composable(
             route = RouteScreen.Map.screenRoute
@@ -42,6 +69,7 @@ fun MainNavHost(
                 painter = painterResource(id = R.drawable.ico_back),
                 contentDescription = "setting back icon",
                 modifier = Modifier
+                    .fillMaxSize()
                     .clickable { navController.popBackStack() }
                     .padding(start = 15.dp, top = 16.dp, bottom = 16.dp, end = 16.dp)
                     .size(24.dp),
