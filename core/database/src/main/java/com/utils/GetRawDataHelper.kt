@@ -1,21 +1,24 @@
 package com.utils
 
-import SoundSignal
 import android.content.Context
+import com.chorokbul.model.SoundSignal
 import com.common.Constants.RAW_DATA_SOUND_SIGNAL
 
 /**
- * Data utils는 raw Data 파일을 open해서 raw data를 list<Entity>로 변환 해주는 유틸
+ * GetRawDataHelper는 raw Data 파일을 open해서 raw data를 list<Entity>로 변환 해주는 유틸
  *
  */
-object DataUtils {
+object GetRawDataHelper {
+
     fun getSoundSignalList(context: Context): List<SoundSignal> {
         val soundSignalList = openRawData(context, RAW_DATA_SOUND_SIGNAL)
             .map {
                 val token = it.split("\t")
-                val lat = token[1].trim().toDouble()
-                val lng = token[2].trim().toDouble()
+                val id = token[1].trim().toInt()
+                val lat = token[2].trim().toDouble()
+                val lng = token[3].trim().toDouble()
                 SoundSignal(
+                    id = id,
                     lat = lat,
                     lng = lng
                 )
