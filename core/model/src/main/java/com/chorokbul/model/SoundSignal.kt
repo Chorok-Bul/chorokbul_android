@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "soundSignal")
 data class SoundSignal(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: Int = 0,
     val type: Int = 1,
     val lat: Double,
