@@ -1,8 +1,8 @@
 package com.database
 
-import SoundSignal
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.chorokbul.model.SoundSignal
 import com.dao.RawDataDao
 
 @Database(
