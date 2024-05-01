@@ -24,6 +24,7 @@ fun MainNavHost(
     modifier: Modifier,
     navController: NavHostController,
     paddingValues: PaddingValues,
+    isTTS: Boolean,
 ) {
     NavHost(
         navController = navController,
@@ -81,7 +82,7 @@ fun MainNavHost(
         composable(
             route = RouteScreen.Map.screenRoute
         ) {
-            NaverMapScreen()
+            NaverMapScreen(isTTS = isTTS)
         }
 
         composable(

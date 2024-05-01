@@ -41,6 +41,7 @@ fun ChorokbulApp(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+    val isTTS = remember { mutableStateOf(true) }
 
     Scaffold(
         modifier = modifier,
@@ -50,7 +51,6 @@ fun ChorokbulApp(
             }
         },
         floatingActionButton = {
-            val sampleSound = remember { mutableStateOf(true) }
 
             val brush = Brush.verticalGradient(
                 listOf(
@@ -67,7 +67,7 @@ fun ChorokbulApp(
                         .size(75.dp)
                         .background(brush, shape = CircleShape),
                     onClick = {
-                        sampleSound.value = !sampleSound.value
+                        isTTS.value = !isTTS.value
                         /* do tts */
                     }
                 ) {
@@ -76,7 +76,7 @@ fun ChorokbulApp(
                         contentDescription = "FAB center icon",
                         contentScale = ContentScale.FillWidth,
                         colorFilter = ColorFilter
-                            .tint(color = if (sampleSound.value) Color.White else Color.Black)
+                            .tint(color = if (isTTS.value) Color.White else Color.Black)
                     )
                 }
             }
@@ -87,7 +87,12 @@ fun ChorokbulApp(
         Column(
             modifier = modifier.fillMaxSize()
         ) {
-            MainNavHost(modifier = modifier, navController = navController, paddingValues = it)
+            MainNavHost(
+                modifier = modifier,
+                navController = navController,
+                paddingValues = it,
+                isTTS = isTTS.value
+            )
         }
     }
 }
