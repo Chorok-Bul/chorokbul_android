@@ -2,8 +2,8 @@ package com.chorokbul.data.repository.impl
 
 import android.content.Context
 import com.chorokbul.data.repository.InsertRawDataRepository
-import com.dao.RawDataDao
-import com.utils.GetRawDataHelper
+import com.chorokbul.database.dao.RawDataDao
+import com.chorokbul.database.utils.GetRawDataHelper
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

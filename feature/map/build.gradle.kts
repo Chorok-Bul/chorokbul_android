@@ -11,6 +11,7 @@ dependencies {
     implementation(projects.core.data)
     implementation(projects.core.model)
     implementation(projects.resource)
+    implementation(projects.core.database)
     implementation(libs.naver.map.compose)
     implementation(libs.google.play.services.location)
     implementation(libs.naver.map.compose.location)

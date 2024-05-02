@@ -1,6 +1,8 @@
 package com.chorokbul.data.di
 
+import com.chorokbul.data.GetRawDataRepository
 import com.chorokbul.data.repository.InsertRawDataRepository
+import com.chorokbul.data.repository.impl.GetRawDataRepositoryImpl
 import com.chorokbul.data.repository.impl.InsertRawDataRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -14,4 +16,9 @@ internal abstract class DataModule {
     abstract fun bindsInsertRawDataRepository(
         impl: InsertRawDataRepositoryImpl
     ): InsertRawDataRepository
+
+    @Binds
+    abstract fun bindsGetRawDataRepository(
+        impl: GetRawDataRepositoryImpl
+    ): GetRawDataRepository
 }

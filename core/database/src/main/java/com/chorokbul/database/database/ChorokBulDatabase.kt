@@ -1,12 +1,12 @@
-package com.database
+package com.chorokbul.database.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.chorokbul.model.SoundSignal
-import com.dao.RawDataDao
+import com.chorokbul.database.entity.SoundSignalEntity
+import com.chorokbul.database.dao.RawDataDao
 
 @Database(
-    entities = [SoundSignal::class],
+    entities = [SoundSignalEntity::class],
     version = 1
 )
 abstract class ChorokBulDatabase : RoomDatabase() {

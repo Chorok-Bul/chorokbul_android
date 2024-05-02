@@ -1,10 +1,10 @@
-package com.di
+package com.chorokbul.database.di
 
 import android.content.Context
 import androidx.room.Room
-import com.common.Constants.CHOROK_BUL_DATABASE_NAME
-import com.dao.RawDataDao
-import com.database.ChorokBulDatabase
+import com.chorokbul.database.common.Constants.CHOROK_BUL_DATABASE_NAME
+import com.chorokbul.database.dao.RawDataDao
+import com.chorokbul.database.database.ChorokBulDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -30,8 +31,6 @@ import com.naver.maps.map.compose.NaverMap
 import com.naver.maps.map.compose.rememberCameraPositionState
 import com.naver.maps.map.compose.rememberFusedLocationSource
 import com.naver.maps.map.overlay.OverlayImage
-import timber.log.Timber
-import kotlin.random.Random
 
 @OptIn(ExperimentalNaverMapApi::class)
 @Composable
@@ -52,8 +51,11 @@ fun NaverMapScreen(
         mutableStateOf(LocationTrackingMode.Follow)
     }
 
-    val sampleStepCount = remember { mutableIntStateOf(100) }
+    val stepCount = remember { mutableIntStateOf(100) }
 
+    LaunchedEffect(isTTS) {
+        viewModel.findLocationInBounds(cameraPositionState.position.target)
+    }
     Box(
         modifier = modifier
             .fillMaxSize(),
@@ -73,8 +75,6 @@ fun NaverMapScreen(
                 isLogoClickEnabled = false,
             ),
             onLocationChange = { location ->
-                onOptionSelected(LocationTrackingMode.Follow)
-
                 currentPosition = LatLng(location.latitude, location.longitude)
             },
             onOptionChange = {
@@ -88,11 +88,12 @@ fun NaverMapScreen(
                 icon = OverlayImage.fromResource(R.drawable.my_location)
             )
 
-            // TODO: 현위치 기준 및 지도 이동시 marker 세팅
-            TrafficMarker(
-                latLng = LatLng(37.4978407, 127.104124),
-                isVisible = viewModel.getIsMarkerVisible()
-            )
+            viewModel.drawSoundSignal.forEach {
+                TrafficMarker(
+                    latLng = LatLng(it.lat, it.lng),
+                    isVisible = viewModel.getIsMarkerVisible()
+                )
+            }
         }
 
         Column(
@@ -113,7 +114,6 @@ fun NaverMapScreen(
                 image = painterResource(id = R.drawable.ico_location),
             ) {
                 onOptionSelected(LocationTrackingMode.Follow)
-                Timber.d("my latlon : $currentPosition")
             }
         }
 
@@ -122,7 +122,7 @@ fun NaverMapScreen(
                 .align(Alignment.BottomCenter)
                 .padding(horizontal = 14.dp)
                 .padding(bottom = 55.dp),
-            step = sampleStepCount.value,
+            step = stepCount.intValue,
             isTTS = isTTS,
         )
     }
