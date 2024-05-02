@@ -1,6 +1,5 @@
 package com.chorokbul.datastore
 
-import com.chorokbul.datastore.model.AppPrefs
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -8,6 +7,11 @@ import kotlinx.coroutines.flow.Flow
  *
  */
 interface AppPrefsDataSource {
-    suspend fun updateAppPrefs(appPrefs: AppPrefs)
-    fun getAppPrefs(): Flow<AppPrefs>
+    // DB 버전 저장 및 읽기
+    suspend fun updateLastDBVersion(version: Int)
+    fun getLastDBVersion(): Flow<Int>
+
+    // Sound Signal RawData Download 여부 저장 및 읽기
+    suspend fun updateSoundSignalDownloadedState(complete: Boolean)
+    fun isSoundSignalDownloaded(): Flow<Boolean>
 }
