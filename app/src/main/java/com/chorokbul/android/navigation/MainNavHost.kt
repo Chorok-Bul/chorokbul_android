@@ -30,19 +30,18 @@ fun MainNavHost(
     ) {
 
         // SplashScreen
+        val splashRoute = RouteScreen.Splash.screenRoute
         composable(
-            route = RouteScreen.Splash.screenRoute
+            route = splashRoute
         ) {
             SplashScreen(
                 onComplete = { complete ->
                     if (complete) {
-                        val route = RouteScreen.Map.screenRoute
                         navController.navigate(
-                            route = route,
+                            route = RouteScreen.Map.screenRoute,
                             builder = {
-                                popUpTo(route) { saveState = false }
+                                popUpTo(splashRoute) { inclusive = true }
                                 launchSingleTop = true
-                                restoreState = false
                             }
                         )
                     }
