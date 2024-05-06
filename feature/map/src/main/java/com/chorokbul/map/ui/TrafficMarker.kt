@@ -12,11 +12,9 @@ import com.naver.maps.map.overlay.OverlayImage
 @Composable
 fun TrafficMarker(
     latLng: LatLng,
-    isVisible: Boolean = true,
 ) {
     Marker(
         state = MarkerState(position = LatLng(latLng.latitude, latLng.longitude)),
         icon = OverlayImage.fromResource(R.drawable.traffic_light),
-        visible = isVisible
     )
 }

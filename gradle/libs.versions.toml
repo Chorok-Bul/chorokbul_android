@@ -19,6 +19,7 @@ room = "2.6.1"
 naverMapCompose = "1.5.6"
 naverMapComposeLocation = "21.0.1"
 googleLocation = "21.0.1"
+clustering = "1.0.2"
 dataStore = "1.1.0"
 
 # Android
@@ -94,6 +95,7 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 naver-map-compose = { module = "io.github.fornewid:naver-map-compose", version.ref = "naverMapCompose" }
 google-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "googleLocation" }
 naver-map-compose-location = { module = "io.github.fornewid:naver-map-location", version.ref = "naverMapComposeLocation" }
+naver-map-tedclustering = { module = "io.github.ParkSangGwon:tedclustering-naver", version.ref = "clustering"}
 
 # PreferencesDatastore
 datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "dataStore" }

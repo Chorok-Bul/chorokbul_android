@@ -5,15 +5,13 @@ import com.chorokbul.model.SoundSignal
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FindLocationWithInBoundsUseCase @Inject constructor(
+class GetSoundSignalListWithInBoundsUseCase @Inject constructor(
     private val getRawDataRepository: GetRawDataRepository,
 ) {
     suspend operator fun invoke(
-        leftLat: Double,
-        leftLng: Double,
-        rightLat: Double,
-        rightLng: Double,
+        latitude: Double,
+        longitude: Double,
     ): Flow<List<SoundSignal>> {
-        return getRawDataRepository.findLocationWithInBounds(leftLat, leftLng, rightLat, rightLng)
+        return getRawDataRepository.getSoundSignalListWithInBounds(latitude, longitude)
     }
 }

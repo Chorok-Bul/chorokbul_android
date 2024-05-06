@@ -4,10 +4,8 @@ import com.chorokbul.model.SoundSignal
 import kotlinx.coroutines.flow.Flow
 
 interface GetRawDataRepository {
-    suspend fun findLocationWithInBounds(
-        leftLat: Double,
-        leftLng: Double,
-        rightLat: Double,
-        rightLng: Double,
+    suspend fun getSoundSignalListWithInBounds(
+        latitude: Double,
+        longitude: Double,
     ): Flow<List<SoundSignal>>
 }

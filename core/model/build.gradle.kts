@@ -8,4 +8,6 @@ android {
 
 dependencies {
     implementation(libs.bundles.room)
+    implementation(libs.naver.map.tedclustering)
+    implementation(libs.naver.map.compose)
 }

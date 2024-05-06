@@ -51,7 +51,6 @@ fun ChorokbulApp(
             }
         },
         floatingActionButton = {
-
             val brush = Brush.verticalGradient(
                 listOf(
                     colorResource(id = R.color.green),

@@ -22,7 +22,7 @@ interface RawDataDao {
                 "AND " +
                 "lng BETWEEN :leftLng AND :rightLng"
     )
-    fun findLocationsWithinBounds(
+    fun getSoundSignalListWithInBounds(
         leftLat: Double,
         rightLat: Double,
         leftLng: Double,
